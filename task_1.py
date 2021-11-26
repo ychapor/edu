@@ -19,10 +19,11 @@ DIRECTORY = args[2]
 try:
     pwd.getpwnam(NEW_OWNER)
 except KeyError:
-    exit('User does not exist!')
+    exit('Provided user does not exist!')
 
 if not os.path.isdir(DIRECTORY):
-    exit('Directory does not exist or is not a directory!')
+    exit('Provided directory does not exist or is not a directory!')
 
-cmd = 'chown -R ' + NEW_OWNER + ':' + NEW_OWNER + ' ' + DIRECTORY
-os.system(cmd)
+os.system('chown -R ' + NEW_OWNER + ':' + NEW_OWNER + ' ' + DIRECTORY)
+print('You have changed the owner of ' + str(DIRECTORY) + ' to '
+      + str(NEW_OWNER))

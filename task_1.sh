@@ -10,38 +10,39 @@ NEW_OWNER="$1"
 DIRECTORY="$2"
 
 # Display errors (if any).
-err() {
+function err() {
   echo "$*" >&2
   exit 1
 }
 
 # Checks if user running script has root permitions.
-is_root() {
+function is_root() {
   if (( $UID != 0 )); then
     err "Only root allowed to run this scenario!"
   fi
 }
 
 # Checks if provided <new_owner> exists in system.
-user_exists() {
+function user_exists() {
   if [[ ! $(id ${NEW_OWNER}) ]]; then
-    err "User does not exist!"
+    err "Provided user does not exist!"
   fi
 }
 
 # Checks if provided <directory> exists.
-dir_exists() {
+function dir_exists() {
   if [[ ! -d ${DIRECTORY} ]]; then
-    err "Directory does not exist or is not a directory!"
+    err "Provided directory does not exist or is not a directory!"
   fi
 }
 
-main() {
+function main() {
   is_root
   user_exists
   dir_exists
 
   chown -R ${NEW_OWNER}:${NEW_OWNER} ${DIRECTORY}
+  echo "You have changed the owner of '${DIRECTORY}' to '${NEW_OWNER}'"
 }
 
 main "$@"
