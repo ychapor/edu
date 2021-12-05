@@ -15,7 +15,7 @@ function err() {
   exit 1
 }
 
-# Checks if user running script has root permitions.
+# Checks if user running script has root permissions.
 function is_root() {
   if (( $UID != 0 )); then
     err "Only root allowed to run this scenario!"
