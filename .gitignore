@@ -1,3 +1,7 @@
 .idea
+.terraform*
+terraform*/terraform*
+terraform*/params.tf
+terraform*/variables.tf
 test_dir
 test_file

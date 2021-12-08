@@ -1,0 +1,29 @@
+variable "project_id" {
+# e.g. "endless-sprite-334218"
+  default = null
+}
+
+variable "region" {
+# e.g. "us-central1"
+  default = null
+}
+
+variable "zone" {
+# e.g. "us-central1-c"
+  default = null
+}
+
+variable "credentials" {
+# e.g. "~/.gcp/gcp_terra.json"
+  default = null
+}
+
+variable "ssh_public_key" {
+# e.g. "~/.ssh/id_ed25519.pub"
+  default = null
+}
+
+variable "ssh_username" {
+# e.g. "yura"
+  default = null
+}
